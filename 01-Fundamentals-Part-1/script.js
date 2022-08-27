@@ -45,7 +45,7 @@ year = 1991; //re-assignment variable (dynamic typing)
 console.log(typeof year); //now, the typeof this variable is Number
 
 console.log(typeof null); 
-*/
+
 
 ////////////////////////////////////
 // let, const and var
@@ -58,3 +58,34 @@ const birthYear = 1991;
 
 var job = 'kucing'; //outdated keyword
 job = 'meong';
+*/
+
+////////////////////////////////////
+// Basic Operators
+// Math operators
+const now = 2037;
+const ageNami = now - 1991;
+const ageLudo = now - 2022;
+console.log(ageNami, ageLudo);
+
+console.log(ageNami * 2, ageNami / 10, 2 ** 3);
+// 2 ** 3 means to the power of 3 = 2*2*2
+
+const firstName = 'Nami';
+const lastName = 'saputri';
+console.log(firstName + ' ' + lastName);
+
+//Assignment Operators
+let x = 10 + 5;
+x += 10; // x = x + 10 = 25
+x *= 4; // x = x * 4 = 100
+x++; // x = x + 1
+x--;
+x--;
+console.log(x);
+
+//Comparison operators
+console.log(ageNami > ageLudo); // >, <, >=, <=
+console.log(ageLudo >= 17);
+
+const isFullAge = ageLudo >= 17;
