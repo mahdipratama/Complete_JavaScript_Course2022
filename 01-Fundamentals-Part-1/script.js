@@ -90,7 +90,7 @@ console.log(ageLudo >= 17);
 
 const isFullAge = ageLudo >= 15;
 console.log(now - 1991 > now - 2018);
-*/
+
 
 ////////////////////////////////////
 // Operator Precedence
@@ -106,3 +106,28 @@ console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge);
+*/
+
+const firstName = 'Nami';
+const job = 'kucing';
+const birthYear = 1998;
+const year = 2037;
+
+// Concatenation
+const nami = 'I\'m ' + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
+console.log(nami);
+
+// Template Literals
+const namiNew = `i'm ${firstName}, a ${year - birthYear} years old ${job}`
+console.log(namiNew);
+
+console.log(`just a regular string...`);
+
+console.log('String with \n\
+multiple \n\
+lines');
+
+console.log(`String with
+multiple
+line
+using backtick`);
