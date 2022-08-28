@@ -11,7 +11,8 @@
 // const johnBMI = johnMass / johnHeight ** 2;
 // console.log(`John BMI: ${johnBMI}`);
 
-// console.log('Is Mark has a higher BMI than John? Answer: ')
+// console.log(`Is Mark has a higher BMI than John? 
+// Answer: `)
 // const markHigherBMI = markBMI > johnBMI;
 // console.log(markHigherBMI);
 
@@ -29,6 +30,7 @@ const johnHeight = 1.76
 const johnBMI = johnMass / johnHeight ** 2;
 console.log(`John BMI: ${johnBMI}`);
 
-console.log('Is Mark has a higher BMI than John? Answer: ')
+console.log(`Is Mark has a higher BMI than John? 
+Answer: `)
 const markHigherBMI = markBMI > johnBMI;
 console.log(markHigherBMI);
