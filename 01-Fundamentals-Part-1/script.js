@@ -106,7 +106,7 @@ console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge);
-*/
+
 
 const firstName = 'Nami';
 const job = 'kucing';
@@ -117,7 +117,7 @@ const year = 2037;
 const nami = 'I\'m ' + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
 console.log(nami);
 
-// Template Literals
+// Template Literals 
 const namiNew = `i'm ${firstName}, a ${year - birthYear} years old ${job}`
 console.log(namiNew);
 
@@ -131,3 +131,39 @@ console.log(`String with
 multiple
 line
 using backtick`);
+*/
+
+//////////////////////////////
+// Decision: if/else Statement
+
+/*
+-----This structure below this is called an 'if', 'else' control structure
+-----This structure allows us to have more control over the way that our code executed
+-----
+if (condition) {      
+  statement
+} else {
+  statement
+}
+*/
+
+const age = 19;
+
+if (age >= 18) { //Press Windows + . to create emoji
+  console.log('Sarah can start driving license 🚗');
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+};
+
+const birthYear = 2010;
+
+//leave the variable below undefined,it's will reassign when our structure control executed
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+
+console.log(century);
