@@ -44,7 +44,7 @@ console.log(typeof year); //also Undefined
 year = 1991; //re-assignment variable (dynamic typing)
 console.log(typeof year); //now, the typeof this variable is Number
 
-console.log(typeof null); 
+console.log(typeof null);
 
 
 ////////////////////////////////////
@@ -117,7 +117,7 @@ const year = 2037;
 const nami = 'I\'m ' + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
 console.log(nami);
 
-// Template Literals 
+// Template Literals
 const namiNew = `i'm ${firstName}, a ${year - birthYear} years old ${job}`
 console.log(namiNew);
 
@@ -140,30 +140,52 @@ using backtick`);
 -----This structure below this is called an 'if', 'else' control structure
 -----This structure allows us to have more control over the way that our code executed
 -----
-if (condition) {      
+if (condition) {
   statement
 } else {
   statement
 }
 */
 
-const age = 19;
+// const age = 19;
 
-if (age >= 18) { //Press Windows + . to create emoji
-  console.log('Sarah can start driving license 🚗');
-} else {
-  const yearsLeft = 18 - age;
-  console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
-};
+// if (age >= 18) { //Press Windows + . to create emoji
+//   console.log('Sarah can start driving license 🚗');
+// } else {
+//   const yearsLeft = 18 - age;
+//   console.log(`Sarah is too young. Wait another ${yearsLeft} years :)`);
+// };
 
-const birthYear = 2010;
+// const birthYear = 2010;
 
-//leave the variable below undefined,it's will reassign when our structure control executed
-let century;
-if (birthYear <= 2000) {
-  century = 20;
-} else {
-  century = 21;
-}
+// //leave the variable below undefined,it's will reassign when our structure control executed
+// let century;
+// if (birthYear <= 2000) {
+//   century = 20;
+// } else {
+//   century = 21;
+// }
 
-console.log(century);
+// console.log(century);
+
+
+// Type Conversion 
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear); // 1991 "1991"
+console.log(Number(inputYear) + 18); // 2009
+
+console.log(Number('Jonas')); // NaN
+console.log(typeof NaN); // number
+
+console.log(String(23), 23); // 23 23
+
+// Type Coercion 
+console.log('i am ' + 23 + ' Years old'); // I am 23 years old
+console.log('23' - '10' - 3); // 10
+console.log('23' / '2'); // 11.5
+
+let n = '1' + 1; // 11
+n = n - 1;
+console.log(n); // 10
+console.log(2 + 3 + 4 + '5'); // 95
+console.log('10' - '4' - '3' - 2 + '5'); // 15
