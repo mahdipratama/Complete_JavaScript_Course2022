@@ -168,7 +168,9 @@ if (condition) {
 
 // console.log(century);
 
-
+///////////////////////////////////
+// Type Conversion and Coercion
+/*
 // Type Conversion 
 const inputYear = '1991';
 console.log(Number(inputYear), inputYear); // 1991 "1991"
@@ -189,3 +191,28 @@ n = n - 1;
 console.log(n); // 10
 console.log(2 + 3 + 4 + '5'); // 95
 console.log('10' - '4' - '3' - 2 + '5'); // 15
+*/
+
+/////////////////////////////////
+// Truthy and Falsy Values 
+// 5 Falsy values: 0, '', undefined, null, NaN
+
+console.log(Boolean(0)); // false 
+console.log(Boolean(undefined)); // false 
+console.log(Boolean('Jonas')); // true 
+console.log(Boolean({})); // true 
+console.log(Boolean('')); // false 
+
+const money = 100;
+if (money) {
+  console.log('Don\'t spend it all');
+} else {
+  console.log('You should get a job!');
+} // 'Don't spend it all'
+
+let height = 0;
+if (height) {
+  console.log('Yay! height is defined');
+} else {
+  console.log('Height is UNDEFINED');
+} // 'Height is UNDEFINED' 
