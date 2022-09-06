@@ -219,26 +219,74 @@ if (height) {
 
 */
 
+
 /////////////////////////
 // Quality Operators: == vs ===
 
-const age = '18';
-if (age === 18) console.log('You just became an adult :D (strict operator)');
+// const age = '18';
+// if (age === 18) console.log('You just became an adult :D (strict operator)');
 
-if (age == 18) console.log('You just became an adult :D (loose operator)');
+// if (age == 18) console.log('You just became an adult :D (loose operator)');
 
-const favorite = Number(prompt('What\'s your favorite number ?', '23'));
-console.log(favorite);
-console.log(typeof favorite);
+// const favorite = Number(prompt('What\'s your favorite number ?', '23'));
+// console.log(favorite);
+// console.log(typeof favorite);
 
-if (favorite === 23) {
-  console.log('Cool! 23 is an amazing number!');
-} else if (favorite === 7) {
-  console.log('7 is also a cool number');
-} else if (favorite === 9) {
-  console.log('9 is also a cool number');
+// if (favorite === 23) {
+//   console.log('Cool! 23 is an amazing number!');
+// } else if (favorite === 7) {
+//   console.log('7 is also a cool number');
+// } else if (favorite === 9) {
+//   console.log('9 is also a cool number');
+// } else {
+//   console.log('Number is not 23 or 7 or 9');
+// }
+
+// if (favorite !== 23) console.log('What about 23?'); 
+
+
+
+/////////////////////////
+// The Switch Statement
+
+// const day = 'monday';
+// switch (day) {
+//   case 'monday':
+//     console.log('Plan course structure');
+//     console.log('Go to Coding meetup');
+//     break;
+//   case 'tuesday':
+//     console.log('Prepare theory videos');
+//     break;
+//   case 'wednesday':
+//   case 'thursday':
+//     console.log('Write code example');
+//     break;
+//   case 'friday':
+//     console.log('Record videos');
+//     break;
+//   case 'saturday':
+//   case 'sunday':
+//     console.log('Enjoy the weekend');
+//     break;
+//   default:
+//     console.log('Not a valid day!');
+// }
+
+// using If/else  
+const day = 'friday';
+
+if (day === 'monday') {
+  console.log('Plan course structure');
+  console.log('Go to coding meetup');
+} else if (day === 'tuesday') {
+  console.log('Prepare theory videos');
+} else if (day === 'wednesday' || day === 'thursday') {
+  console.log('Write code examples');
+} else if (day === 'friday') {
+  console.log('Record videos');
+} else if (day === 'saturday' || day === 'sunday') {
+  console.log('Enjoy the weekend');
 } else {
-  console.log('Number is not 23 or 7 or 9');
+  console.log('Not a valid day!');
 }
-
-if (favorite !== 23) console.log('What about 23?'); 
