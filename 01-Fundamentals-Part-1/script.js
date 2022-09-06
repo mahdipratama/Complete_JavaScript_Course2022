@@ -171,7 +171,7 @@ if (condition) {
 ///////////////////////////////////
 // Type Conversion and Coercion
 /*
-// Type Conversion 
+// Type Conversion
 const inputYear = '1991';
 console.log(Number(inputYear), inputYear); // 1991 "1991"
 console.log(Number(inputYear) + 18); // 2009
@@ -181,7 +181,7 @@ console.log(typeof NaN); // number
 
 console.log(String(23), 23); // 23 23
 
-// Type Coercion 
+// Type Coercion
 console.log('i am ' + 23 + ' Years old'); // I am 23 years old
 console.log('23' - '10' - 3); // 10
 console.log('23' / '2'); // 11.5
@@ -194,14 +194,14 @@ console.log('10' - '4' - '3' - 2 + '5'); // 15
 
 
 /////////////////////////////////
-// Truthy and Falsy Values 
+// Truthy and Falsy Values
 // 5 Falsy values: 0, '', undefined, null, NaN
 
-console.log(Boolean(0)); // false 
-console.log(Boolean(undefined)); // false 
-console.log(Boolean('Jonas')); // true 
-console.log(Boolean({})); // true 
-console.log(Boolean('')); // false 
+console.log(Boolean(0)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean('Jonas')); // true
+console.log(Boolean({})); // true
+console.log(Boolean('')); // false
 
 const money = 100;
 if (money) {
@@ -215,7 +215,7 @@ if (height) {
   console.log('Yay! height is defined');
 } else {
   console.log('Height is UNDEFINED');
-} // 'Height is UNDEFINED' 
+} // 'Height is UNDEFINED'
 
 */
 
@@ -273,20 +273,39 @@ if (height) {
 //     console.log('Not a valid day!');
 // }
 
-// using If/else  
-const day = 'friday';
+// // using If/else  
+// const day = 'friday';
 
-if (day === 'monday') {
-  console.log('Plan course structure');
-  console.log('Go to coding meetup');
-} else if (day === 'tuesday') {
-  console.log('Prepare theory videos');
-} else if (day === 'wednesday' || day === 'thursday') {
-  console.log('Write code examples');
-} else if (day === 'friday') {
-  console.log('Record videos');
-} else if (day === 'saturday' || day === 'sunday') {
-  console.log('Enjoy the weekend');
+// if (day === 'monday') {
+//   console.log('Plan course structure');
+//   console.log('Go to coding meetup');
+// } else if (day === 'tuesday') {
+//   console.log('Prepare theory videos');
+// } else if (day === 'wednesday' || day === 'thursday') {
+//   console.log('Write code examples');
+// } else if (day === 'friday') {
+//   console.log('Record videos');
+// } else if (day === 'saturday' || day === 'sunday') {
+//   console.log('Enjoy the weekend');
+// } else {
+//   console.log('Not a valid day!');
+// }
+
+
+/////////////////////////
+// The Conditional (Ternary) Operator
+const age = 23;
+// age >= 18 ? console.log('I like to drink wine 🍷' : console.log('I like to drink tea 🍵'))
+
+const drink = age >= 18 ? 'wine 🍷' : 'tea 🍵';
+console.log(drink);
+
+let drink2;
+if (age >= 18) {
+  drink2 = 'wine 🍷'
 } else {
-  console.log('Not a valid day!');
+  drink2 = 'tea 🍵'
 }
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'tea 🍵'}`);
