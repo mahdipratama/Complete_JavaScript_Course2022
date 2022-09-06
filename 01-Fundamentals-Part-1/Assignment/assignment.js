@@ -60,8 +60,8 @@ if (language === 'english' && population < 50 && !isIsland) {
   console.log(`${country} does not meet your criteria`);
 }
 
-// Lecture: The Switch Statement 
 
+// Lecture: The Switch Statement 
 switch (language) {
   case 'mandarin':
     console.log('MOST number of native speakers!')
@@ -81,3 +81,6 @@ switch (language) {
   default:
     console.log('Great language too :D');
 }
+
+// Lecture: The Conditional (Ternary) Operator 
+population >= 33 ? console.log(`${country}'s population is above average `) : console.log(`${country}'s population is below average`);
