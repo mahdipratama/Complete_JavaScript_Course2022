@@ -56,7 +56,6 @@ const age2 = calAge2(1998);
 
 console.log(age1);
 console.log(age2);
-*/
 
 
 
@@ -79,3 +78,21 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1998, 'Mahdi'));
+*/
+
+
+
+////////////////////
+// Function calling other Function
+////////////////////
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangesPieces = cutFruitPieces(oranges)
+
+  const juice = `Juice with ${applePieces} piece of apples and ${orangesPieces} piece of oranges.`;
+  return juice;
+}
