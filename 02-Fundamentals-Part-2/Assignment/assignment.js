@@ -27,44 +27,55 @@ function percentageOfWorld1(nation, population) {
 const indonesiaPopulation = percentageOfWorld1('Indonesia', 275);
 console.log(indonesiaPopulation)
 
-const indiaPopulation = percentageOfWorld1('Japan', 123);
-console.log(indiaPopulation)
+const japanPopulation = percentageOfWorld1('Japan', 123);
+console.log(japanPopulation)
 
-const chinaPopulation = percentageOfWorld1('United Kingdom', 67);
-console.log(chinaPopulation);
-
-
-//Expression
-const percentageOfWorld1 = function (nation, population) {
-  let numOfPopulation = population / 7900 * 100;
-  const percentageCountry = Number.parseFloat(numOfPopulation).toFixed(2);
-  return (`${nation} has ${percentageCountry}% of the world population`)
-}
-
-const indonesiaPopulation = percentageOfWorld1('Indonesia', 275);
-console.log(indonesiaPopulation)
-
-const indiaPopulation = percentageOfWorld1('Japan', 123);
-console.log(indiaPopulation)
-
-const chinaPopulation = percentageOfWorld1('United Kingdom', 67);
-console.log(chinaPopulation);
+const unitedKingdomPopulation = percentageOfWorld1('United Kingdom', 67);
+console.log(unitedKingdomPopulation);
 */
 
-
-
-// LECTURE: Arrow Function
-const percentageOfWorld1 = (nation, population) => {
+//Expression
+const percentageOfWorld1 = function (population) {
   let numOfPopulation = population / 7900 * 100;
   const percentageCountry = Number.parseFloat(numOfPopulation).toFixed(2);
-  return (`${nation} has ${percentageCountry}% of the world population`)
+  return percentageCountry;
 }
 
-const indonesiaPopulation = percentageOfWorld1('Indonesia', 275);
-console.log(indonesiaPopulation)
+const indonesiaPopulation = percentageOfWorld1(275);
+console.log(`Indonesia has ${indonesiaPopulation}% of the world`)
 
-const indiaPopulation = percentageOfWorld1('Japan', 123);
-console.log(indiaPopulation)
+const japanPopulation = percentageOfWorld1(123);
+console.log(`India has ${japanPopulation}% of the world`)
 
-const chinaPopulation = percentageOfWorld1('United Kingdom', 67);
-console.log(chinaPopulation);
+const unitedKingdomPopulation = percentageOfWorld1(67);
+console.log(`United Kingdom has ${unitedKingdomPopulation}% of the world`);
+
+
+
+// // LECTURE: Arrow Function
+// const percentageOfWorld3 = (nation, population) => {
+//   let numOfPopulation = population / 7900 * 100;
+//   const percentageCountry = Number.parseFloat(numOfPopulation).toFixed(2);
+//   return (`${nation} has ${percentageCountry}% of the world population`)
+// }
+
+// const indonesiaPopulation = percentageOfWorld3('Indonesia', 275);
+// console.log(indonesiaPopulation)
+
+// const indiaPopulation = percentageOfWorld3('Japan', 123);
+// console.log(indiaPopulation)
+
+// const chinaPopulation = percentageOfWorld3('United Kingdom', 67);
+// console.log(chinaPopulation);
+
+
+//LECTURE: Function Calling other Function 
+const describePopulation = function (country, population) {
+  const percentage = percentageOfWorld1(population);
+  const description = `${country} has ${population} million people, which is about ${percentage}% of the world.`
+  console.log(description);
+}
+
+describePopulation('Portugal', 10);
+describePopulation('China', 1141);
+describePopulation('USA', 332);
