@@ -52,7 +52,7 @@ console.log(`United Kingdom has ${unitedKingdomPopulation}% of the world`);
 
 
 
-// // LECTURE: Arrow Function
+// LECTURE: Arrow Function
 // const percentageOfWorld3 = (nation, population) => {
 //   let numOfPopulation = population / 7900 * 100;
 //   const percentageCountry = Number.parseFloat(numOfPopulation).toFixed(2);
@@ -93,3 +93,20 @@ const percentages = [
 ]
 
 console.log(percentages);
+
+
+// LECTURE: Basic Array Operations (Method)
+const neighbours = ['Malaysia', 'Singapore', 'Brunei'];
+
+neighbours.push('Utopia');
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes('Germany')) {
+  console.log('Probably not a central European country :D');
+}
+
+neighbours[0] = 'Republic of Malaysia'
+console.log(neighbours);
