@@ -200,4 +200,17 @@ console.log(friends.includes('23')); // true
 
 if (friends.includes('Steven')) {
   console.log('You have  a friends called Steven');
-} 
+}
+
+
+/////////////////////
+// Introduction to Objects
+/////////////////////
+
+const kucing = {
+  firstName: 'Nami',
+  lastName: 'Saputri',
+  age: 2022 - 2021,
+  job: 'Mewong',
+  friends: ['Luna', 'Ludo', 'Lini']
+};
