@@ -110,3 +110,13 @@ if (!neighbours.includes('Germany')) {
 
 neighbours[0] = 'Republic of Malaysia'
 console.log(neighbours);
+
+
+// LECTURE: Introduction to Object
+const myCountry = {
+  country: 'Indonesia',
+  capital: 'Jakarta',
+  language: 'Bahasa',
+  population: 275,
+  neighbours: ['Malaysia', 'Singapore', 'Australia']
+} 
