@@ -95,7 +95,7 @@ function fruitProcessor(apples, oranges) {
   const juice = `Juice with ${applePieces} piece of apples and ${orangesPieces} piece of oranges.`;
   return juice;
 }
-*/
+
 
 
 ////////////////////
@@ -167,3 +167,37 @@ console.log(age1, age2, age3);
 
 const ages = [umur(years[0]), umur(years[1]), umur(years[years.length - 1])];
 console.log(ages);
+*/
+
+/////////////////////
+// Basic Array (Methods)
+/////////////////////
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// Add element
+friends.push('Jay') // * add the element to the End of array
+console.log(friends);
+
+friends.unshift('John'); // * add the element to the Beginning of array
+console.log(friends);
+
+// Remove Element
+friends.pop(); // * Remove last element 
+friends.pop(); // * Remove last element 
+console.log(friends);
+
+friends.shift(); // * Remove first element
+console.log(friends);
+
+console.log(friends.indexOf('Steven')); // 1
+console.log(friends.indexOf('Bob')); // -1
+
+friends.push(23);
+console.log(friends.includes('Steven')); // true
+console.log(friends.includes('Bob')); // false
+console.log(friends.includes('23')); // true
+
+if (friends.includes('Steven')) {
+  console.log('You have  a friends called Steven');
+} 
