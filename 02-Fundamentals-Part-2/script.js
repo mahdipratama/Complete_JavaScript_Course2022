@@ -167,7 +167,7 @@ console.log(age1, age2, age3);
 
 const ages = [umur(years[0]), umur(years[1]), umur(years[years.length - 1])];
 console.log(ages);
-*/
+
 
 /////////////////////
 // Basic Array (Methods)
@@ -215,7 +215,7 @@ const kucing = {
   friends: ['Luna', 'Ludo', 'Lini']
 };
 
-// Retrieve Object Property 
+ //* Retrieve Object Property 
 console.log(kucing.lastName);
 console.log(kucing['lastName']);
 
@@ -235,7 +235,46 @@ kucing.location = 'Gunung Ibul';
 kucing['twitter'] = '@namiBon';
 console.log(kucing);
 
-// Challenges
+//!Challenges
 // 'Nami has 3 friends, and his best friend is called Ludo'
 
 console.log(`${kucing.firstName} has ${kucing.friends.length} friends, and his best friend is called ${kucing.friends[1]}`);
+*/
+
+/////////////////////
+// Object Methods
+/////////////////////
+
+const kucing = {
+  firstName: 'Nami',
+  lastName: 'Saputri',
+  birthYear: 2021,
+  job: 'Mewong',
+  friends: ['Luna', 'Ludo', 'Lini'],
+  isCute: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2022 - birthYear;
+  // }
+
+  // calcAge: function () {
+  //   return 2022 - this.birthYear;
+  // }
+
+  calcAge: function () {
+    this.age = 2022 - this.birthYear
+    return this.age
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and she has ${this.isCute ? 'a' : 'no'} cuteness overload`
+  }
+};
+
+console.log(kucing.calcAge());
+console.log(kucing.age);
+
+// !Challenges
+// 'Nami is a 1-year old mewong, and she has a cuteness
+
+console.log(kucing.getSummary());
