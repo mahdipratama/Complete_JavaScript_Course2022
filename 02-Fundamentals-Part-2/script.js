@@ -214,3 +214,28 @@ const kucing = {
   job: 'Mewong',
   friends: ['Luna', 'Ludo', 'Lini']
 };
+
+// Retrieve Object Property 
+console.log(kucing.lastName);
+console.log(kucing['lastName']);
+
+const nameKey = 'Name';
+console.log(kucing['first' + nameKey]);
+console.log(kucing['last' + nameKey]);
+
+const interestedIn = prompt('What you want to know about nami ? firstName, lastName, age, job, and friends');
+
+if (kucing[interestedIn]) {
+  console.log(kucing[interestedIn]);
+} else {
+  console.log('Wrong Request! Choose between firstName, lastName, age, job and friends');
+}
+
+kucing.location = 'Gunung Ibul';
+kucing['twitter'] = '@namiBon';
+console.log(kucing);
+
+// Challenges
+// 'Nami has 3 friends, and his best friend is called Ludo'
+
+console.log(`${kucing.firstName} has ${kucing.friends.length} friends, and his best friend is called ${kucing.friends[1]}`);
