@@ -239,7 +239,6 @@ console.log(kucing);
 // 'Nami has 3 friends, and his best friend is called Ludo'
 
 console.log(`${kucing.firstName} has ${kucing.friends.length} friends, and his best friend is called ${kucing.friends[1]}`);
-*/
 
 /////////////////////
 // Object Methods
@@ -278,3 +277,20 @@ console.log(kucing.age);
 // 'Nami is a 1-year old mewong, and she has a cuteness
 
 console.log(kucing.getSummary());
+*/
+
+
+
+/////////////////////
+// Iteration: The For Loop
+/////////////////////
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`I Love You ${i}`);
+}
+
+let times = 10;
+// times = 20;
+for (let a = 1; a <= times; a++) {
+  console.log(`I Miss You ${a}`);
+}
