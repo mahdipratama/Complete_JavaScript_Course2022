@@ -129,3 +129,10 @@ console.log(myCountry.population);
 
 myCountry['population'] -= 2;
 console.log(myCountry['population']);
+
+// LECTURE: Iteration: The For Loop
+
+const voter = 50;
+for (let vote = 1; vote <= voter; vote++) {
+  console.log(`Voter number ${vote} is currently voting`);
+}
