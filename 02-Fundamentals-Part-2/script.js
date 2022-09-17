@@ -277,7 +277,7 @@ console.log(kucing.age);
 // 'Nami is a 1-year old mewong, and she has a cuteness
 
 console.log(kucing.getSummary());
-*/
+
 
 
 
@@ -293,4 +293,56 @@ let times = 10;
 // times = 20;
 for (let a = 1; a <= times; a++) {
   console.log(`I Miss You ${a}`);
+}
+*/
+
+
+/////////////////////
+// Looping Arrays, Breaking and Continuing
+/////////////////////
+const kucing = [
+  'Nami',
+  'Saputri',
+  2022 - 2021,
+  'Mewong',
+  ['Luna', 'Ludo', 'Lini'],
+  true
+];
+
+const types = [];
+
+for (let i = 0; i < kucing.length; i++) {
+  //Reading From kucing Array
+  console.log(kucing[i], typeof kucing[i]);
+
+  // Filling Array
+  // types[i] = typeof kucing[i];
+  types.push(typeof kucing[i]);
+}
+
+console.log(types);
+
+
+const years = [1991, 2007, 1996, 2000];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2022 - years[i]);
+}
+
+console.log(ages);
+
+// Continue and Break
+console.log('----- ONLY STRING -----');
+for (let i = 0; i < kucing.length; i++) {
+  if (typeof kucing[i] !== 'string') continue;
+
+  console.log(kucing[i], typeof kucing[i]);
+}
+
+console.log('----- BREAK -----');
+for (let i = 0; i < kucing.length; i++) {
+  if (typeof kucing[i] === 'number') break;
+
+  console.log(kucing[i], typeof kucing[i]);
 }
