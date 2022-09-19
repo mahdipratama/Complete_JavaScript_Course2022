@@ -8,7 +8,7 @@ if (hasDriversLicense) console.log('I can drive');
 console.log(hasDriversLicense)
 
 // this reserved word below will cause error silently if we not use strict Mode
-const interface = 'Audio'; 
+const interface = 'Audio';
 const private = '333'
 
 
@@ -29,7 +29,7 @@ function fruitProcessor(apples, oranges) {
   return juice;
 }
 
-// Saving(capture) that return value in to a variable 
+// Saving(capture) that return value in to a variable
 const ourJuice = fruitProcessor(5, 0);
 console.log(ourJuice);
 
@@ -42,13 +42,13 @@ console.log(ourJuice2);
 // Function Declarations vs Expressions
 ////////////////////
 
-//Function declaration 
+//Function declaration
 function calAge1(birthYear) {
   return 2022 - birthYear
 }
 const age1 = calAge1(1991);
 
-//Function Expression 
+//Function Expression
 const calAge2 = function (birthYear) {
   return 2022 - birthYear
 }
@@ -60,15 +60,15 @@ console.log(age2);
 
 
 ////////////////////
-// Arrow Functions 
+// Arrow Functions
 ////////////////////
 
-// One-Liner Arrow Function 
+// One-Liner Arrow Function
 const calcAge3 = birthYear => 2022 - birthYear;
 const age3 = calcAge3(1991);
 console.log(age3);
 
-// Multiple-Liner function 
+// Multiple-Liner function
 const yearsUntilRetirement = (birthYear, firstName) => {
   const age = 2022 - birthYear;
   const retirement = 65 - age;
@@ -183,8 +183,8 @@ friends.unshift('John'); // * add the element to the Beginning of array
 console.log(friends);
 
 // Remove Element
-friends.pop(); // * Remove last element 
-friends.pop(); // * Remove last element 
+friends.pop(); // * Remove last element
+friends.pop(); // * Remove last element
 console.log(friends);
 
 friends.shift(); // * Remove first element
@@ -215,7 +215,7 @@ const kucing = {
   friends: ['Luna', 'Ludo', 'Lini']
 };
 
- //* Retrieve Object Property 
+ //* Retrieve Object Property
 console.log(kucing.lastName);
 console.log(kucing['lastName']);
 
@@ -294,7 +294,7 @@ let times = 10;
 for (let a = 1; a <= times; a++) {
   console.log(`I Miss You ${a}`);
 }
-*/
+
 
 
 /////////////////////
@@ -345,4 +345,30 @@ for (let i = 0; i < kucing.length; i++) {
   if (typeof kucing[i] === 'number') break;
 
   console.log(kucing[i], typeof kucing[i]);
+}
+*/
+
+/////////////////////
+// Looping Backwards and Loops In Loops
+/////////////////////
+
+const nami = [
+  'Nami',
+  'Saputri',
+  2022 - 2021,
+  'cat',
+  ['Ludo', 'Luna', 'Lini'],
+  true
+]
+
+for (let i = nami.length - 1; i >= 0; i--) {
+  console.log(i, nami[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+  console.log(`----------Exercise ${exercise}`);
+
+  for (let rep = 1; rep <= 5; rep++) {
+    console.log(`Exercise ${exercise}: Lifting Barberls repetitions ${rep}`);
+  }
 }
