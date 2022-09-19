@@ -372,3 +372,27 @@ for (let exercise = 1; exercise <= 3; exercise++) {
     console.log(`Exercise ${exercise}: Lifting Barberls repetitions ${rep}`);
   }
 }
+
+
+/////////////////////
+// The While Loops
+/////////////////////
+let rep = 1;
+while (rep <= 10) {
+  console.log(`Lifting Barbels: ${rep}`)
+  rep++
+}
+
+
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+if (dice === 6) {
+  console.log('Got 6 on the first Roll!! You lucky bastard!')
+}
+while (dice !== 6) {
+  console.log(`You Rolled a ${dice}, try again!`);
+  dice = Math.floor(Math.random() * 6) + 1;
+
+  if (dice === 6) console.log(`Yeyy you got a 6 !`)
+}
