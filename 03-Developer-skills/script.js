@@ -1,6 +1,7 @@
 // Remember, we're gonna use strict mode in all scripts now!
 'use strict'
 
+/* 
 // NOTE:
 // Using Google, StackOverflow and MDN
 
@@ -75,3 +76,55 @@ const arr2 = [3, 3, 10];
 
 const amplitudeNew = calcTempAmplitudeNew(arr1, arr2);
 console.log(amplitudeNew);
+*/
+
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celcius',
+
+    // ! C) FIX 
+    // value: Number(prompt('Degree celcius: ')),
+    value: 10,
+  };
+
+
+  // ! B) FIND THE BUG
+  console.log(measurement);
+  console.table(measurement);
+
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+// * A) IDENTIFY
+console.log(measureKelvin());
+
+const calcTempAmplitudeBug = function (temps1, temps2) {
+  const temps = [...temps1, ...temps2]
+  console.log(temps);
+
+  let max = 0;
+  let min = 0;
+
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i]
+    if (typeof curTemp !== 'number') continue;
+
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min
+};
+
+const arr1 = [3, 5, 1];
+const arr2 = [9, 4, 5];
+
+const amplitudeBug = calcTempAmplitudeBug(arr1, arr2);
+console.log(amplitudeBug);
