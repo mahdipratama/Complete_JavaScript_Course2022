@@ -1,0 +1,11 @@
+'use strict';
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnsShowModal = document.querySelectorAll('.show-modal');
+console.log(btnsShowModal);
+
+for (let btns of btnsShowModal) {
+  console.log(btns.textContent);
+}
