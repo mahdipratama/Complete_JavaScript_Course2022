@@ -2,7 +2,7 @@
 
 
 // ----------Scoping in practice----------//
-
+/*
 function calcAge(birthYear) {
   const age = 2022 - birthYear;
 
@@ -121,5 +121,51 @@ ludo.calcAge();
 
 const f = jonas.calcAge;
 f(); // error year is undefined because f() its just regular function contains jonas.calcAge() method
+*/
+
+// --------Regular Functions vs. Arrow Functions-------- // 
+
+const jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    // console.log(this);
+    console.log(2022 - this.year);
+
+    // Solution 1:
+    // const self = this; // self or that
+    // const isMillenials = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    //   // console.log(this.year >= 1981 && this.year <= 1996); // undefined
+
+    // Solution 2:
+    const isMillenials = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    }
+    isMillenials();
+  },
+
+  // Method with arrow function
+  greet: () => console.log(`Hey ${this.firstName}`),
+};
+
+jonas.greet(); // 'Hey undefined' arrow function doesn't get its own 'this' keyword and will use the global scope, bcs object its not a block scope, object just object literals
+jonas.calcAge();
 
 
+// argument keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b
+};
+
+addArrow(2, 3, 4) // its getting error bcs arguments keyword only exist in regular function
