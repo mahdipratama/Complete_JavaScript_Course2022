@@ -80,3 +80,46 @@ const z = 3;
 console.log(x === window.x); //true => with var keyword will create a property on the global window object
 console.log(y === window.y); //false 
 console.log(z === window.z); //false
+
+
+
+// --------this keyword-------- // '
+
+console.log(this); // Window property
+
+const calcAge = function (birthYear) {
+  console.log(2022 - birthYear);
+  console.log(this); // undefined
+}
+
+calcAge(1998);
+
+const calcAgeArrow = birthYear => {
+  console.log(2022 - birthYear);
+  console.log(this); // Window object, arrow function does not get its own this keyword.
+}
+
+calcAgeArrow(1998);
+
+
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this); // jonas object
+    console.log(2022 - this.year); // 31;
+  },
+};
+
+jonas.calcAge();
+
+const ludo = {
+  year: 2000,
+};
+
+ludo.calcAge = jonas.calcAge;
+ludo.calcAge();
+
+const f = jonas.calcAge;
+f(); // error year is undefined because f() its just regular function contains jonas.calcAge() method
+
+
