@@ -121,7 +121,8 @@ ludo.calcAge();
 
 const f = jonas.calcAge;
 f(); // error year is undefined because f() its just regular function contains jonas.calcAge() method
-*/
+
+
 
 // --------Regular Functions vs. Arrow Functions-------- // 
 
@@ -169,3 +170,85 @@ var addArrow = (a, b) => {
 };
 
 addArrow(2, 3, 4) // its getting error bcs arguments keyword only exist in regular function
+*/
+
+
+// --------Primitives vs. Objects (Primitives vs. References Types------- // 
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age); // 31
+console.log(oldAge); // 30
+
+const me = {
+  name: 'jonas',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log('Friend:', friend); // Friend: {"Jonas", age: 27}
+console.log('Me:', me); // Me: {"Jonas", age: 27}
+
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica); // Before marriage: { firstName: 'Jessica', lastName: 'Davis', age: 27 }
+console.log('After marriage:', marriedJessica); // After marriage: { firstName: 'Jessica', lastName: 'Davis', age: 27 }
+
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+// ! Object.assign({}) only creates a shallow copy, not a deep clone, a shallow copy will only copy the properties in the first level while a deep clone would copy everything
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+console.log('Before marriage:', jessica2); // Before marriage: { firstName: 'Jessica', lastName: 'Williams', age: 27 }
+console.log('After marriage:', jessicaCopy); // After marriage: { firstName: 'Jessica', lastName: 'Davis', age: 27 }
+
+
+const jeannie = {
+  firstName: 'Jeannie',
+  lastName: 'Williams',
+  age: 25,
+  family: ['Alice', 'Bob']
+};
+
+const jeannieCopy = Object.assign({}, jeannie);
+jeannieCopy.lastName = 'Frank';
+
+jeannieCopy.family.push('Mary');
+jeannieCopy.family.push('John');
+
+console.log('Before marriage:', jeannie);
+/* Before marriage: {
+  firstName: 'Jeannie',
+  lastName: 'Williams',
+  age: 25,
+  family: [ 'Alice', 'Bob', 'Mary', 'john']
+}*/
+console.log('After marriage:', jeannieCopy);
+/* Before marriage: {
+  firstName: 'Jeannie',
+  lastName: 'Frank',
+  age: 25,
+  family: [ 'Alice', 'Bob', 'Mary', 'john' ]
+}*/
