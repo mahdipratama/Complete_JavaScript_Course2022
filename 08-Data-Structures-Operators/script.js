@@ -45,11 +45,64 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3} `);
   },
+
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng);
+    // console.log(otherIng);
+  },
 };
+
+//======================//
+// Rest Pattern and Parameters // 
+//======================//
+
+// ======= 1).Destructuring ===========
+
+// SPREAD, because on RIGHT  side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// =======2). Function ==========
+const add = function (...numbers) {
+  let sum = 0;
+  for (let num of numbers) {
+    sum += num;
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(3, 5, 6, 7);
+add(8, 4, 3, 5, 7, 8, 3);
+
+const x = [23, 5, 7];
+add(...x);
+
+
+const mainIng = prompt('one main ingredients ?', 'garlic');
+const otherIng = [prompt('other ingredients ?', 'onion')];
+
+restaurant.orderPizza(mainIng);
+restaurant.orderPizza(otherIng);
 
 //======================//
 // The Spread Operator // 
 //======================//
+/* 
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 
@@ -106,7 +159,7 @@ console.log(restaurant.name);
 //======================//
 // Destructuring Objects // 
 //======================//
-/* 
+
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Jl.Bintan',
