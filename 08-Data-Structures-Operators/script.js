@@ -48,10 +48,45 @@ const restaurant = {
 
   orderPizza: function (mainIng, ...otherIng) {
     console.log(mainIng);
-    // console.log(otherIng);
+    console.log(otherIng);
   },
 };
 
+//======================//
+// Short Circuiting (&& and ||) // 
+//======================//
+console.log('=======OR========');
+
+console.log(3 || 'Jonas'); // 3
+console.log('' || 'Jonas'); // Jonas
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello', cuz 'Hello' is the truthy value in this chain of OR operations
+
+
+restaurant.numGuest = 0;
+const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guest1); // 10, cuz restaurant.numGuest is doesn't exist (undefined) at the restaurant objects and so therefore 10 will be the result
+
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2); // 10
+
+console.log('=======AND========');
+
+console.log(0 && 'Jonas'); // 0
+console.log(7 && 'Jonas'); // 'Jonas'
+
+console.log('Hello' && 23 && null && 'Jonas'); // null
+
+// Practical Example 
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'sausage', 'spinach', 'tomato')
+};
+
+
+/* 
 //======================//
 // Rest Pattern and Parameters // 
 //======================//
@@ -102,7 +137,7 @@ restaurant.orderPizza(otherIng);
 //======================//
 // The Spread Operator // 
 //======================//
-/* 
+
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 
