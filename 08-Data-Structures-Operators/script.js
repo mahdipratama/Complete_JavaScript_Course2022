@@ -53,6 +53,21 @@ const restaurant = {
 };
 
 //======================//
+// The Nullish Coalescing Operator (??) //
+//======================//
+
+restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
+
+
+
+/* 
+//======================//
 // Short Circuiting (&& and ||) // 
 //======================//
 console.log('=======OR========');
@@ -86,7 +101,7 @@ if (restaurant.orderPizza) {
 };
 
 
-/* 
+
 //======================//
 // Rest Pattern and Parameters // 
 //======================//
@@ -133,6 +148,9 @@ const otherIng = [prompt('other ingredients ?', 'onion')];
 
 restaurant.orderPizza(mainIng);
 restaurant.orderPizza(otherIng);
+
+
+
 
 //======================//
 // The Spread Operator // 
@@ -191,6 +209,9 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
+
+
+
 //======================//
 // Destructuring Objects // 
 //======================//
@@ -234,6 +255,7 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+
 
 
 //======================//
