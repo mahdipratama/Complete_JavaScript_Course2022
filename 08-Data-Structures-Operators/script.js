@@ -52,6 +52,24 @@ const restaurant = {
   },
 };
 
+
+//======================//
+// Looping Arrays: The for-of Loop //
+//======================//
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`); // i = index, el = elements/value
+}
+
+// console.log(([...menu.entries()]));
+
+
+/* 
 //======================//
 // Logical Assignment Operators //
 //======================//
@@ -88,7 +106,7 @@ console.log(rest2);
 
 
 
-/* 
+
 //======================//
 // The Nullish Coalescing Operator (??) //
 //======================//
