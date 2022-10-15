@@ -61,6 +61,46 @@ const restaurant = {
   },
 };
 
+
+//======================//
+// Sets//
+//======================//
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Nami'));
+
+console.log(ordersSet.size); // 3
+console.log(ordersSet.has('Pizza')); // true  
+console.log(ordersSet.has('Bread')); // false
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (let order of ordersSet) console.log(order);
+
+
+// Example 
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+console.log(new Set('NamiSaputri').size);
+
+
+/* 
 //======================//
 // Looping Objects: Objects Keys, Values, and Entries//
 //======================//
@@ -88,7 +128,7 @@ for (const [day, { open, close }] of entries) {
 };
 
 
-/* 
+
 //======================//
 // Optional Chaining (?.)//
 //======================//
