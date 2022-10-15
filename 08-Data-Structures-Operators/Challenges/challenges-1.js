@@ -1,6 +1,6 @@
 const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
+  club1: 'Bayern Munich',
+  club2: 'Borrussia Dortmund',
   players: [
     [
       'Neuer',
@@ -33,13 +33,14 @@ const game = {
   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
   date: 'Nov 9th, 2020',
   odds: {
-    team1: 1.33,
+    club1: 1.33,
     x: 3.25,
-    team2: 6.5,
+    club2: 6.5,
   },
 };
 
 // Coding CHALLENGE #1 
+console.log('======Coding CHALLENGE #1========');
 // 1.
 const [players1, players2] = game.players;
 console.log(players1, players2);
@@ -74,3 +75,70 @@ printGoals(...game.scored);
 // 7. 
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+
+
+// Coding CHALLENGE #2
+console.log('======Coding CHALLENGE #2========');
+
+// 1.
+for (let [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
+};
+
+// 2.
+const odds = Object.values(game.odds);
+console.log(odds);
+
+let average = 0
+for (let num of odds) {
+  average += num / odds.length;
+}
+console.log(average);
+
+// 3. 
+
+for (let [club, odd] of Object.entries(game.odds)) {
+  const teamStr = club === 'x' ? 'draw' : `victory ${game[club]}`
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// 4. 
+const scorers = {};
+for (let player of game.scored) {
+  // scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+
+  if (scorers[player]) {
+    scorers[player]++
+  } else {
+    (scorers[player] = 1)
+  }
+
+  /*
+  if (player who scored exist) {
+    player name increment by 1 
+  } else {
+    player scored = 1
+  }
+  */
+};
+
+console.log(scorers);
+
+
+const scorers1 = {};
+const myArr = game.scored
+for (let i = 0; i < myArr.length; i++) {
+  // console.log(myArr[i]);
+  if (scorers1[myArr[i]]) {
+    scorers1[myArr[i]]++
+  } else {
+    (scorers1[myArr[i]] = 1)
+  }
+}
+
+console.log(scorers1);
+
+// let myArray = ["one", "two", "three", "four"];
+// for (let i = 0; i < myArray.length; i++) {
+//   console.log(myArray[i]);
+// }
