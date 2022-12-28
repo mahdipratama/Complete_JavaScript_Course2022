@@ -56,8 +56,33 @@ const restaurant = {
   }
 };
 
+
 ///////////////////////////////
-// Short Circuiting (&& and ||) = = 
+// Nullish Coalescing Operator (??)= = 
+
+restaurant.numGuests = 0;
+
+// Using SHORT-CIRCUITING ||
+const guest = restaurant.numGuests || 10;
+console.log(guest);
+
+// Using Nullish Coalescing ??: is gonna check whether value is nullish or falsy. this operator works with the idea of nullish values (null and undefined) instead of falsy values. 0 and '' (empty string) it's doesn't include so this operator will assume the 0 and '' (empty string) is the valuable. and if the numGuests is undefined then the default value would executed and return (10).  
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+/*
+///////////////////////////////
+// Short Circuiting (&& and ||) = =
 
 console.log('=== OR operator ===');
 // Use ANY data type, return ANY data type, short-circuiting
@@ -71,7 +96,7 @@ console.log(undefined || null); // null
 console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
 // restaurant.numGuests = 23;
-// Check if any guest inside the object, if it doesn't exist default value will return 
+// Check if any guest inside the object, if it doesn't exist default value will return
 const guest1 =
   restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guest1);
@@ -81,7 +106,7 @@ const guest2 = restaurant.numGuests || 10;
 console.log(guest2);
 
 console.log('=== AND operator ===');
-// AND operator short-circuiting work when the first value is falsie then it will be the result 
+// AND operator short-circuiting work when the first value is falsie then it will be the result
 console.log(0 && 'Jonas'); // 0
 // both truthy, last value will be a result
 console.log(7 && 'Jonas'); // Jonas
@@ -105,7 +130,7 @@ restaurant.orderLasagna && restaurant.orderLasagna('avocado', 'sausage');
 
 
 
-/*
+
 ///////////////////////////////
 // Rest pattern and Parameters = = =
 
