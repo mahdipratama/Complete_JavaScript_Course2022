@@ -51,14 +51,59 @@ const restaurant = {
       console.log(`Your Pizza with ${mainIng} main topping and ${othersIng} plus topping`);
     }
 
-    // console.log(`Your Pizza with main topping ${mainIng} ${othersIng}`);
-
   }
 };
-
-
 ///////////////////////////////
-// Nullish Coalescing Operator (??)= = 
+// Logical Assignment Operators = =
+
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'Giorno',
+  owner: 'Giorno Giovanna',
+};
+
+// OR || assignment operator
+// Basic Statement
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// Short version statement
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment Operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+// rest2.owner = rest2.owner && '<ANONYMOUS';
+// rest1.owner = rest1.owner && '<ANONYMOUS';
+
+rest1.owner &&= '<ANONYMOUS';
+rest2.owner &&= '<ANONYMOUS';
+
+console.log(rest1);
+console.log(rest2);
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+/*
+///////////////////////////////
+// Nullish Coalescing Operator (??)= =
 
 restaurant.numGuests = 0;
 
@@ -66,7 +111,7 @@ restaurant.numGuests = 0;
 const guest = restaurant.numGuests || 10;
 console.log(guest);
 
-// Using Nullish Coalescing ??: is gonna check whether value is nullish or falsy. this operator works with the idea of nullish values (null and undefined) instead of falsy values. 0 and '' (empty string) it's doesn't include so this operator will assume the 0 and '' (empty string) is the valuable. and if the numGuests is undefined then the default value would executed and return (10).  
+// Using Nullish Coalescing ??: is gonna check whether value is nullish or falsy. this operator works with the idea of nullish values (null and undefined) instead of falsy values. 0 and '' (empty string) it's doesn't include so this operator will assume the 0 and '' (empty string) is the valuable. and if the numGuests is undefined then the default value would executed and return (10).
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
 
@@ -80,7 +125,7 @@ console.log(guestCorrect);
 
 
 
-/*
+
 ///////////////////////////////
 // Short Circuiting (&& and ||) = =
 
