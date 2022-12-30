@@ -53,6 +53,36 @@ const restaurant = {
 
   }
 };
+
+///////////////////////////////
+// Logical Assignment Operators = =
+
+// For Of loop
+const menu = [
+  ...restaurant.starterMenu,
+  ...restaurant.mainMenu
+];
+
+for (const item of menu) console.log(item);
+
+// 'entries()' method we can returns an iterator
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log(...menu.entries());
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+/*
 ///////////////////////////////
 // Logical Assignment Operators = =
 
@@ -101,7 +131,7 @@ console.log(rest2);
 
 
 
-/*
+
 ///////////////////////////////
 // Nullish Coalescing Operator (??)= =
 
@@ -111,10 +141,9 @@ restaurant.numGuests = 0;
 const guest = restaurant.numGuests || 10;
 console.log(guest);
 
-// Using Nullish Coalescing ??: is gonna check whether value is nullish or falsy. this operator works with the idea of nullish values (null and undefined) instead of falsy values. 0 and '' (empty string) it's doesn't include so this operator will assume the 0 and '' (empty string) is the valuable. and if the numGuests is undefined then the default value would executed and return (10).
+// Using Nullish Coalescing ??: is gonna check whether value is nullish or falsy. this operator works with the idea of nullish values (null and undefined) instead of falsy values. 0 and '' (empty string) is doesn't include so this operator will assume the 0 and '' (empty string) is valuable. and if the numGuests is undefined then the default value would executed and return (10).
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
-
 
 
 
