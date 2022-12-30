@@ -1,27 +1,49 @@
 'use strict';
 
+// Compute property name
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri',
+  'sat', 'sun'];
+
+
+const openingHours = {
+  // compute the weekdays properties name into an object
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0,
+    close: 24,
+  },
+}
+
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0,
-      close: 24,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  // old Ways
+  // openingHours: openingHours,
+
+  // Properties value short-hand
+  openingHours,
+
+
+  // ES6 Method Definition Shorthand
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+
+  // write a method properties with definition short-hand
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
@@ -54,6 +76,40 @@ const restaurant = {
   }
 };
 
+
+/*
+///////////////////////////////
+// Enhanced Object Literals = =
+
+note:
+* Enhanced object literals
+
+Property values shorthand:
+  - let say, we got another object then we want put them into another object, we can write the copyObject name inside to the targetObject. in above we modify the restaurant object so its no longer contain 'openingHours' properties anymore
+  (line 32.). we can enhanced the copyObject (line 8.) to the targetObject (restaurant) by writing the copyObject name (line 35.)
+
+Method definition shorthand:
+  - To define a method in an object literal in a shorter way
+  by omitting the 'function' word and ':' (line 40.)
+
+
+Computed property names:
+  - to specify a computed property name
+  we have an array contains the 'days' expression (line 3.)
+  and we use them to specify a computed property names in an object (line 9.)
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
 ///////////////////////////////
 // Logical Assignment Operators = =
 
@@ -82,7 +138,7 @@ for (const [i, el] of menu.entries()) {
 
 
 
-/*
+
 ///////////////////////////////
 // Logical Assignment Operators = =
 
