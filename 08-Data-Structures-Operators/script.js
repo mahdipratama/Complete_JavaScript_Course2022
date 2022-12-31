@@ -75,6 +75,56 @@ const restaurant = {
 
   }
 };
+///////////////////////////////
+// Optional Chaining (?.) = =
+
+// it would not return anything, invisible bug
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+// WITH Optional Chaining, operator accesses an object's property or calls a function. if the object accessed or function called is 'undefined or 'null', it returns 'undefined' instead of throwing an error like expression above (line 84.)
+console.log(restaurant.openingHours.mon?.open); // Undefined
+console.log(restaurant.openingHours?.mon?.open); // Undefined
+
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri',
+  'sat', 'sun'];
+
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed'
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+// Check if method exist
+console.log(restaurant.order?.(0, 1) ?? 'method doesn\'t exist');          // ['Focaccia', 'Pasta']
+
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'method doesn\'t exist'); // Method doesn't exist
+
+// Arrays 
+const user = [{ name: 'Nami', email: 'namiCantik@gmail.com' }];
+// const user = [];
+
+// old ways
+if (user.length > 0) {
+  console.log(user[0].name);
+} else {
+  console.log('user array empty');
+}
+
+// with optional chaining ES6 
+console.log(user[0]?.name ?? 'user array empty');  // Nami
+
+
+
+// ===================BORDER====================== //
+
+
+
+
 
 
 /*
@@ -90,7 +140,7 @@ Property values shorthand:
 
 Method definition shorthand:
   - To define a method in an object literal in a shorter way
-  by omitting the 'function' word and ':' (line 40.)
+  by omitting the 'function' keyword and ':' (line 40.)
 
 
 Computed property names:
