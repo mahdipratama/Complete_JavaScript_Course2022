@@ -39,6 +39,7 @@ const game = {
   },
 };
 
+/* 
 // Coding CHALLENGE #1 
 console.log('======Coding CHALLENGE #1========');
 // 1.
@@ -75,7 +76,7 @@ printGoals(...game.scored);
 // 7. 
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
-
+*/
 
 // Coding CHALLENGE #2
 console.log('======Coding CHALLENGE #2========');
@@ -104,23 +105,32 @@ for (let [club, odd] of Object.entries(game.odds)) {
 
 // 4. 
 const scorers = {};
-for (let player of game.scored) {
-  // scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// for (let player of game.scored) {
+//   // Pseudo Code
+//   // if (player who scored exist) {
+//   //   player name increment by 1 
+//   // } else {
+//   //   player scored = 1
+//   // }
 
+//   // Ternary Operator
+//   // scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+
+//   if (scorers[player]) {
+//     scorers[player]++
+//   } else {
+//     (scorers[player] = 1)
+//   }
+// };
+
+// Using forEach 
+game.scored.forEach(player => {
   if (scorers[player]) {
     scorers[player]++
   } else {
-    (scorers[player] = 1)
+    scorers[player] = 1;
   }
-
-  /*
-  if (player who scored exist) {
-    player name increment by 1 
-  } else {
-    player scored = 1
-  }
-  */
-};
+})
 
 console.log(scorers);
 
@@ -142,3 +152,7 @@ console.log(scorers1);
 // for (let i = 0; i < myArray.length; i++) {
 //   console.log(myArray[i]);
 // }
+
+
+
+
