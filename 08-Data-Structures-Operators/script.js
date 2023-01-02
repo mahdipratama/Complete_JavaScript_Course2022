@@ -76,7 +76,49 @@ const restaurant = {
   }
 };
 ///////////////////////////////
-// Optional Chaining (?.) = =
+// Looping Objects: Object Keys, values, and Entries 
+
+
+// Looping over an object keys (Property NAMES)
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `we are open on ${properties.length} 
+days: `;
+
+for (let day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+
+// Looping over an object (Property VALUES)
+const values = Object.values(openingHours);
+console.log(values);
+
+
+// Looping over The entire object (NAMES AND VALUES)
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+
+for (let [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+/*
+///////////////////////////////
+// Optional Chaining (?.)
 
 // it would not return anything, invisible bug
 if (restaurant.openingHours && restaurant.openingHours.mon)
@@ -104,7 +146,7 @@ console.log(restaurant.order?.(0, 1) ?? 'method doesn\'t exist');          // ['
 
 console.log(restaurant.orderRisotto?.(0, 1) ?? 'method doesn\'t exist'); // Method doesn't exist
 
-// Arrays 
+// Arrays
 const user = [{ name: 'Nami', email: 'namiCantik@gmail.com' }];
 // const user = [];
 
@@ -115,7 +157,7 @@ if (user.length > 0) {
   console.log('user array empty');
 }
 
-// with optional chaining ES6 
+// with optional chaining ES6
 console.log(user[0]?.name ?? 'user array empty');  // Nami
 
 
@@ -127,9 +169,9 @@ console.log(user[0]?.name ?? 'user array empty');  // Nami
 
 
 
-/*
+
 ///////////////////////////////
-// Enhanced Object Literals = =
+// Enhanced Object Literals
 
 note:
 * Enhanced object literals
@@ -161,7 +203,7 @@ Computed property names:
 
 
 ///////////////////////////////
-// Logical Assignment Operators = =
+// Logical Assignment Operators
 
 // For Of loop
 const menu = [
@@ -190,7 +232,7 @@ for (const [i, el] of menu.entries()) {
 
 
 ///////////////////////////////
-// Logical Assignment Operators = =
+// Logical Assignment Operators
 
 const rest1 = {
   name: 'Capri',
@@ -239,7 +281,7 @@ console.log(rest2);
 
 
 ///////////////////////////////
-// Nullish Coalescing Operator (??)= =
+// Nullish Coalescing Operator (??)
 
 restaurant.numGuests = 0;
 
@@ -262,7 +304,7 @@ console.log(guestCorrect);
 
 
 ///////////////////////////////
-// Short Circuiting (&& and ||) = =
+// Short Circuiting (&& and ||)
 
 console.log('=== OR operator ===');
 // Use ANY data type, return ANY data type, short-circuiting
@@ -312,7 +354,7 @@ restaurant.orderLasagna && restaurant.orderLasagna('avocado', 'sausage');
 
 
 ///////////////////////////////
-// Rest pattern and Parameters = = =
+// Rest pattern and Parameters
 
 
 // 1). DESTRUCTURING
@@ -369,7 +411,7 @@ restaurant.orderPizza('mushroom');
 
 
 ///////////////////////////////
-// Spread Operators (...) = = =
+// Spread Operators (...)
 
 
 // Bad ways X
@@ -450,7 +492,7 @@ console.log(restaurant.mainMenu);
 
 
 ///////////////////////////////
-// Destructuring an Objects = = =
+// Destructuring an Objects
 
 // As an arguments
 //////////////////////////////////
@@ -503,7 +545,7 @@ console.log(open, close);
 
 
 ///////////////////////////////
-// Destructuring an Array = = =
+// Destructuring an Array
 
 // Old ways
 const arr = [1, 2, 3];
@@ -553,6 +595,5 @@ const [p = 1, q = 1, r = 1] = [8, 9]
 console.log(p, q, r);
 */
 
-// Destructuring an Array = = =
 
 // ===================BORDER====================== //
