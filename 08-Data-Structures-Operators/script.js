@@ -76,14 +76,86 @@ const restaurant = {
   }
 };
 ///////////////////////////////
-// Looping Objects: Object Keys, values, and Entries 
+// Sets 
+
+// Sets can't have any duplicates
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza'
+]);
+
+console.log(ordersSet);
+// outputs: set(3) {'Pasta', 'Pizza', 'Risotto'}
+
+console.log(new Set('Jonas'));
+// outputs: Set(5) {'J', 'o', 'n', 'a', 's'}
+
+
+// To check how many different meals to cook
+console.log(ordersSet.size);      // outputs: 3
+
+
+
+// 'has.' is a method to check if a certain elements is in a set. 
+console.log(ordersSet.has('Pizza'));  // outputs: true
+console.log(ordersSet.has('Bread'));  // outputs: false
+
+// the sets has to be unique
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+
+// sets also iterable
+for (let order of ordersSet) console.log(order);
+
+
+// Example convert an array into sets
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+// to make it the values pack to an array, wrap it with bracket notation and spread.
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+// outputs: (3) ['Waiter', 'Chef', 'Manager']
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);  // outputs: 3
+
+
+console.log(new Set('NamiSunami').size); // outputs: 7
+
+
+
+
+
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
+/*
+///////////////////////////////
+// Looping Objects: Object Keys, values, and Entries
 
 
 // Looping over an object keys (Property NAMES)
 const properties = Object.keys(openingHours);
 console.log(properties);
 
-let openStr = `we are open on ${properties.length} 
+let openStr = `we are open on ${properties.length}
 days: `;
 
 for (let day of properties) {
@@ -116,7 +188,7 @@ for (let [day, { open, close }] of entries) {
 
 
 
-/*
+
 ///////////////////////////////
 // Optional Chaining (?.)
 
