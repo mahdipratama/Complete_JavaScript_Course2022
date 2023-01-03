@@ -75,8 +75,105 @@ const restaurant = {
 
   }
 };
+
 ///////////////////////////////
-// Sets 
+// Maps: Fundamentals
+
+// In maps, the keys can have any type, could be an objects, arrays, or other maps. 
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy')
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+// Calling the set method returns the updated map.
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'we are open')
+  .set(false, 'we are closed');
+
+// get method to read data from map
+console.log(rest.get('name'));   //outputs: Classico Italiano
+console.log(rest.get(true));     //outputs: we are open
+console.log(rest.get(1));        //outputs: Firenze, Italy
+
+console.log(rest);
+// outputs: 
+// Map(8) {
+//   'name' => 'Classico Italiano',
+//   1 => 'Firenze, Italy',
+//   2 => 'Lisbon, Portugal',
+//   'categories' => [ 'Italian', 'Pizzeria', 'Vegetarian', 'Organic' ],
+//   'open' => 11,
+//   'close' => 23,
+//   true => 'we are open',
+//   false => 'we are closed'
+// }
+
+// Example expression of boolean as keys  
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')))
+//outputs: We are open
+
+// Check a properties
+console.log(rest.has('categories'));  // outputs: true
+
+// Deleting properties 
+rest.delete(2);
+console.log(rest);
+// outputs: 
+// Map(7) {
+//   'name' => 'Classico Italiano',
+//   1 => 'Firenze, Italy',
+//   'categories' => [ 'Italian', 'Pizzeria', 'Vegetarian', 'Organic' ],
+//   'open' => 11,
+//   'close' => 23,
+//   true => 'we are open',
+//   false => 'we are closed'
+// }
+
+console.log(rest.size);           // outputs: 7
+
+// Deleting entire rest
+rest.clear();
+console.log(rest);                // outputs: Map(0) {size: 0}
+
+// Arrays as a keys
+rest.set([1, 2], 'Test')
+console.log(rest);
+// outputs: Map(1) { [ 1, 2 ] => 'Test' }
+
+console.log(rest.get([1, 2]))
+// outputs: undefined (because is that two arrays are actually not the same object in the heap)
+
+// to make it works
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr));
+// outputs: 'Test'
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+// outputs: Map(3) {Array(2) => 'Test', Array(2) => 'Test', h1 => 'Heading'}
+// key: h1
+// value: "Heading"
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
+/*
+///////////////////////////////
+// Sets
 
 // Sets can't have any duplicates
 const ordersSet = new Set([
@@ -100,7 +197,7 @@ console.log(ordersSet.size);      // outputs: 3
 
 
 
-// 'has.' is a method to check if a certain elements is in a set. 
+// 'has.' is a method to check if a certain elements is in a set.
 console.log(ordersSet.has('Pizza'));  // outputs: true
 console.log(ordersSet.has('Bread'));  // outputs: false
 
@@ -108,12 +205,18 @@ console.log(ordersSet.has('Bread'));  // outputs: false
 ordersSet.add('Garlic Bread');
 ordersSet.add('Garlic Bread');
 ordersSet.delete('Risotto');
+console.log(ordersSet);
+// outputs: Set(3) {'Pasta', 'Pizza', 'Garlic Bread'}
+
+// to clear a sets
 // ordersSet.clear();
 console.log(ordersSet);
+// outputs: Set(0) {size: 0}
 
 
 // sets also iterable
 for (let order of ordersSet) console.log(order);
+// outputs: Pasta, Pizza, Garlic Bread
 
 
 // Example convert an array into sets
@@ -134,11 +237,6 @@ console.log(new Set('NamiSunami').size); // outputs: 7
 
 
 
-
-
-
-
-
 // ===================BORDER====================== //
 
 
@@ -146,7 +244,7 @@ console.log(new Set('NamiSunami').size); // outputs: 7
 
 
 
-/*
+
 ///////////////////////////////
 // Looping Objects: Object Keys, values, and Entries
 
