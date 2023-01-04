@@ -75,11 +75,83 @@ const restaurant = {
 
   }
 };
+///////////////////////////////
+// Maps: Iteration
 
+// Create a map from scratch without set method
+const question = new Map([
+  ['question', 'what is the best programming language in the world ?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try Again!'],
+])
+
+console.log(question);
+// outputs:
+// Map(7) {
+//   'question' => 'what is the best programming language in the world ?',
+//   1 => 'C',
+//   2 => 'Java',
+//   3 => 'JavaScript',
+//   'correct' => 3,
+//   true => 'Correct!',
+//   false => 'Try Again!'
+// }
+
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+
+// Quiz app
+console.log(question.get('question'));
+
+// loop through from maps
+for (let [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your answer'));
+const answer = 3
+console.log(answer);
+
+// if (answer === question.get('correct')) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
+
+console.log(question.get(answer === question.get('correct')));
+
+
+// Convert map to array
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+// console.log(question.entries());
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
+/*
 ///////////////////////////////
 // Maps: Fundamentals
 
-// In maps, the keys can have any type, could be an objects, arrays, or other maps. 
+// In maps, the keys can have any type, could be an objects, arrays, or other maps.
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
 rest.set(1, 'Firenze, Italy')
@@ -99,7 +171,7 @@ console.log(rest.get(true));     //outputs: we are open
 console.log(rest.get(1));        //outputs: Firenze, Italy
 
 console.log(rest);
-// outputs: 
+// outputs:
 // Map(8) {
 //   'name' => 'Classico Italiano',
 //   1 => 'Firenze, Italy',
@@ -111,7 +183,7 @@ console.log(rest);
 //   false => 'we are closed'
 // }
 
-// Example expression of boolean as keys  
+// Example expression of boolean as keys
 const time = 21;
 console.log(rest.get(time > rest.get('open') && time < rest.get('close')))
 //outputs: We are open
@@ -119,10 +191,10 @@ console.log(rest.get(time > rest.get('open') && time < rest.get('close')))
 // Check a properties
 console.log(rest.has('categories'));  // outputs: true
 
-// Deleting properties 
+// Deleting properties
 rest.delete(2);
 console.log(rest);
-// outputs: 
+// outputs:
 // Map(7) {
 //   'name' => 'Classico Italiano',
 //   1 => 'Firenze, Italy',
@@ -171,7 +243,7 @@ console.log(rest);
 
 
 
-/*
+
 ///////////////////////////////
 // Sets
 
