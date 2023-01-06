@@ -75,6 +75,112 @@ const restaurant = {
 
   }
 };
+
+///////////////////////////////
+// Working With Strings - Part 2
+
+const airline = 'Garuda Indonesia Air';
+
+// To transform strings
+console.log(airline.toLowerCase());
+// outputs: 'garuda indonesia air'
+
+console.log(airline.toUpperCase());
+// 'GARUDA INDONESIA AIR'
+
+// Fix Capitalization in name
+const passenger = 'jOnAS';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);  // outputs: 'Jonas'
+
+
+// Comparing Emails 
+const email = 'hello@jonas.io'
+const loginEmail = '  Hello@Jonas.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);   // outputs: hello@jonas.io
+
+const normalizeEmail = loginEmail.toLowerCase().trim();
+console.log(normalizeEmail);  // outputs: hello@jonas.io
+
+console.log(email === normalizeEmail); // outputs: true
+
+const checkEmail = (email, logEmail) => {
+  return email === logEmail;
+}
+console.log(checkEmail(email, loginEmail)); // outputs: false
+
+
+// Replacing 
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);  // outputs: 288.97$
+
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!'
+
+console.log(announcement.replace('door', 'gate'));
+// outputs: All passengers come to boarding gate 23. Boarding door 23!
+
+console.log(announcement.replaceAll('door', 'gate'));
+// outputs: All passengers come to boarding gate 23. Boarding gate 23!
+
+// with RegEx
+console.log(announcement.replace(/door/g, 'gate'));
+// outputs: All passengers come to boarding gate 23. Boarding gate 23!
+
+
+// Boolean 
+const plane = 'Airbus A320neo'
+console.log(plane.includes('A320'));  // outputs: true
+console.log(plane.includes('Boeing'));  // outputs: false
+console.log(plane.startsWith('Air'));  // outputs: true
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus Family');
+}
+// outputs: 'Part of the NEW Airbus Family'
+
+
+
+// PRACTICE EXAMPLE: when we receive input from a user, always start by putting everything into lowerCase. it's make it a lot easier to compare it to something
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You\'re not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+}
+
+// this first person has knife but with an upper case, 
+// if we didn't convert this to lowerCase (line: 151) 
+// then the includes method there would be false.
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+// outputs: You're not allowed on board
+checkBaggage('Socks and camera');
+// outputs: Welcome aboard!
+checkBaggage('Got some snacks and a gun for protection');
+// outputs: You're not allowed on board
+
+
+
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
+/*
 ///////////////////////////////
 // Working With Strings - Part 1
 
@@ -93,7 +199,7 @@ console.log(airline.length);  // outputs: 16
 console.log('B737'.length);   // outputs: 4
 
 
-// Strings also have methods 
+// Strings also have methods
 // indexOf();
 console.log(airline.indexOf('r'));  // outputs: 2
 console.log(airline.lastIndexOf('a'));  // outputs: 15
@@ -101,14 +207,14 @@ console.log(airline.indexOf('Indonesia'));
 // outputs: 7 (must precise)
 
 console.log(airline.slice(7));
-/* outputs: 'Indonesia' 
-(7 is the begin parameter it's the position at which the extraction will start and 
-then log a 'substring' and this doesn't change the underlying string)*/
+// outputs: 'Indonesia'
+// (7 is the begin parameter it's the position at which the extraction will start and
+// then log a 'substring' and this doesn't change the underlying string)
 
 console.log(airline.slice(7, 11));
-/* outputs: 'Indo' (start with 7 index then stop before reaching index 11. 
-the length of the extracted string is always going to be end - beginning (11 - 7 = 4)
-so the length of extracted string is 4) */
+// outputs: 'Indo' (start with 7 index then stop before reaching index 11.
+// the length of the extracted string is always going to be end - beginning (11 - 7 = 4)
+// so the length of extracted string is 4)
 
 
 console.log(airline.slice(0, airline.indexOf(' ')));
@@ -136,20 +242,19 @@ checkMiddleSeat('11B');   // outputs: You got the middle seat
 checkMiddleSeat('23C');   // outputs: You got lucky!
 checkMiddleSeat('3E');    // outputs: You got the middle seat
 
-/* */
 
-// so, strings are primitives type , how and why do they have methods ? Whenever we call a method on a string, javascript will automatically behind the scenes convert that string primitive to string object with the same content. on that object where the methods are called this process is called Boxing, because it takes our string and puts it into a box which is the object. 
+// so, strings are primitives type , how and why do they have methods ? Whenever we call a method on a string, javascript will automatically behind the scenes convert that string primitive to string object with the same content. on that object where the methods are called this process is called Boxing, because it takes our string and puts it into a box which is the object.
 
 
-// this conversion below is what JavaScript does behind the scenes whenever we call a method on a string, then when the operation is done the object is converted back to a regular string primitive. all string methods return primitives. 
+// this conversion below is what JavaScript does behind the scenes whenever we call a method on a string, then when the operation is done the object is converted back to a regular string primitive. all string methods return primitives.
 console.log(new String('Nami'));
-/*outputs: String {'Nami'}
-0: "N"
-1: "a"
-2: "m"
-3: "i"
-length :4
-*/
+// outputs: String {'Nami'}
+// 0: "N"
+// 1: "a"
+// 2: "m"
+// 3: "i"
+// length :4
+
 console.log(typeof new String('Nami'));
 // outputs: object
 
@@ -163,7 +268,7 @@ console.log(typeof new String('Nami').slice(1));
 
 
 
-/*
+
 ///////////////////////////////
 // Maps: Iteration
 
