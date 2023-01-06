@@ -77,6 +77,121 @@ const restaurant = {
 };
 
 ///////////////////////////////
+// Working With Strings - Part 3
+
+// split() method to split a string into an array of substrings based on a specified separator
+console.log('a+very+nice+string'.split('+'));
+// outputs: [ 'a', 'very', 'nice', 'string' ]
+
+console.log('Nami Tsunami'.split(' '));
+// outputs: [ 'Nami', 'Tsunami' ]
+
+const [firstName, lastName] = 'Nami Tsunami'.split(' ')
+console.log(firstName, lastName);
+// outputs: Nami Tsunami
+
+
+// join() method is a string method in JavaScript that allows you to join the elements of an array into a single string.
+const newName = ['Mrs.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+// outputs: Mrs. Nami TSUNAMI
+
+
+const capitalizeName = (name) => {
+  // split them into an array
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  // looping through names
+  for (const n of names) {
+    // convert each word first letters to uppercase 
+    // then joined the rest of word starting from [1]
+    // and push them into an array 
+    namesUpper.push(n[0].toUpperCase() + n.slice(1))
+
+    // using replace() method to replace the first letters
+    // to upper case
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+
+  // join them with a ' ' (space) as separator
+  console.log(namesUpper.join(' '));
+
+}
+capitalizeName('jessica ann smith davis');
+// outputs: Jessica Ann Smith Davis
+capitalizeName('Nami Tsunami');
+// outputs: Nami Tsunami
+
+
+// Padding strings: to add a number of characters to the string until the string has a certain desired length
+const message = 'Go to gate 23!'
+// first arg for length, second for characters we want to pad the string with
+console.log(message.padStart(25, '+'));
+// outputs: +++++++++++Go to gate 23!
+
+// add 5+ because the result is already 10 length
+// the ped it until the whole length is 15
+console.log('Mahdi'.padStart(10, '+').padEnd(15, '+'))
+// outputs: +++++Mahdi+++++
+
+
+// PRACTICE EXAMPLE: when you see a credit card number on the internet you never see the entire number, right ? so usually we see the last four digits and the rest is marked with some symbol.
+
+const maskCreditCard = function (number) {
+  // convert a number into a strings with type coercion
+  const str = number + '';
+  // take the last four characters with slice()
+  const last = str.slice(-4);
+  // return an entire characters with * symbol except the last four characters
+  return last.padStart(str.length, '*');
+}
+
+console.log(maskCreditCard(98374658));
+// outputs: ****4658
+console.log(maskCreditCard(433231234253));
+// outputs: ********4253
+console.log(maskCreditCard('433231234253'));
+// outputs: ********4253
+
+
+// Repeat method is a string method in JavaScript that allows you to repeat a string a specified number of times.
+// let's say there is some bad weather at Airport, when that happens they usually have those long messages on the screen running text with the text repeating all the time.
+
+const message2 = 'Bad weather... All Departues Delayed... ';
+console.log(message2.repeat(5));
+// outputs: Bad weather... All Departues Delayed... 
+// Bad weather... All Departues Delayed... Bad weather... All Departues Delayed...
+// Bad weather... All Departues Delayed... Bad weather... All Departues Delayed... 
+
+
+const planesInline = (n) => {
+  console.log(`There are ${n} planes in line ${'🛬'.repeat(n)}`);
+}
+
+planesInline(5);
+// outputs: There are 5 planes in line 🛬🛬🛬🛬🛬
+planesInline(3);
+// outputs: There are 3 planes in line 🛬🛬🛬
+planesInline(12);
+// outputs:There are 12 planes in line 🛬🛬🛬🛬🛬🛬🛬🛬🛬🛬🛬🛬
+
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+
+
+/*
+///////////////////////////////
 // Working With Strings - Part 2
 
 const airline = 'Garuda Indonesia Air';
@@ -95,7 +210,7 @@ const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(
 console.log(passengerCorrect);  // outputs: 'Jonas'
 
 
-// Comparing Emails 
+// Comparing Emails
 const email = 'hello@jonas.io'
 const loginEmail = '  Hello@Jonas.Io \n';
 
@@ -114,7 +229,7 @@ const checkEmail = (email, logEmail) => {
 console.log(checkEmail(email, loginEmail)); // outputs: false
 
 
-// Replacing 
+// Replacing
 const priceGB = '288,97£';
 const priceUS = priceGB.replace('£', '$').replace(',', '.');
 console.log(priceUS);  // outputs: 288.97$
@@ -132,7 +247,7 @@ console.log(announcement.replace(/door/g, 'gate'));
 // outputs: All passengers come to boarding gate 23. Boarding gate 23!
 
 
-// Boolean 
+// Boolean
 const plane = 'Airbus A320neo'
 console.log(plane.includes('A320'));  // outputs: true
 console.log(plane.includes('Boeing'));  // outputs: false
@@ -155,8 +270,8 @@ const checkBaggage = function (items) {
   }
 }
 
-// this first person has knife but with an upper case, 
-// if we didn't convert this to lowerCase (line: 151) 
+// this first person has knife but with an upper case,
+// if we didn't convert this to lowerCase (line: 151)
 // then the includes method there would be false.
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 // outputs: You're not allowed on board
@@ -180,7 +295,7 @@ checkBaggage('Got some snacks and a gun for protection');
 
 
 
-/*
+
 ///////////////////////////////
 // Working With Strings - Part 1
 
