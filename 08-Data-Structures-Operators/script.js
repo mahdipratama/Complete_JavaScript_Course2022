@@ -1,9 +1,7 @@
 'use strict';
 
 // Compute property name
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri',
-  'sat', 'sun'];
-
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
   // compute the weekdays properties name into an object
@@ -19,8 +17,7 @@ const openingHours = {
     open: 0,
     close: 24,
   },
-}
-
+};
 
 const restaurant = {
   name: 'Classico Italiano',
@@ -36,7 +33,6 @@ const restaurant = {
   // Properties value short-hand
   openingHours,
 
-
   // ES6 Method Definition Shorthand
   // order: function (starterIndex, mainIndex) {
   //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -48,16 +44,19 @@ const restaurant = {
   },
 
   ///////////////////////////////
-  orderDelivery: function ({   //
-    starterIndex = 0,          //
-    mainIndex = 0,             //
-    time = '23:00',            //
-    address,                   //
-  }) {                         //
-    console.log(               //
+  orderDelivery: function ({
+    //
+    starterIndex = 0, //
+    mainIndex = 0, //
+    time = '23:00', //
+    address, //
+  }) {
+    //
+    console.log(
+      //
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `
-    );                         //
-  },///////////////////////////// 
+    ); //
+  }, /////////////////////////////
 
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`);
@@ -70,10 +69,11 @@ const restaurant = {
     if (othersIng.length === 0) {
       console.log(`Your Pizza with ${mainIng} main topping `);
     } else {
-      console.log(`Your Pizza with ${mainIng} main topping and ${othersIng} plus topping`);
+      console.log(
+        `Your Pizza with ${mainIng} main topping and ${othersIng} plus topping`
+      );
     }
-
-  }
+  },
 };
 ///////////////////////////////
 // Strings Methods Practice
@@ -81,26 +81,34 @@ const restaurant = {
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-
 // 🔴 Delayed Departure from FAO to TXL (11h25)
 //              Arrival from BRU to FAO (11h45)
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
 
-
 const getCode = str => str.slice(0, 3).toUpperCase();
 
 // loop over the flights then separate them with split
 for (const flight of flights.split('+')) {
-  // unpacking the string from an array 
+  // unpacking the string from an array
   const [type, from, to, time] = flight.split(';');
 
   // print them nicely with string method
-  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`.padStart(45);
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(45);
 
   console.log(output);
 }
-
+// outputs:
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
 
 
 
@@ -108,7 +116,6 @@ for (const flight of flights.split('+')) {
 
 
 // ===================BORDER====================== //
-
 
 
 
@@ -1185,6 +1192,5 @@ console.log(s, t, rest);
 const [p = 1, q = 1, r = 1] = [8, 9]
 console.log(p, q, r);
 */
-
 
 // ===================BORDER====================== //
