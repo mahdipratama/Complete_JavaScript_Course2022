@@ -139,7 +139,6 @@ checkIn(flight, nami)  // outputs: Wrong Passport!
 
 
 
- */
 ///////////////////////////////
 // Functions Accepting Callback Functions
 
@@ -163,7 +162,7 @@ const transformer = function (str, fn) {
   console.log(`Transform by: ${fn.name}`);
 }
 
-// invoke transformer function then it will calling the upperFirstWord function 
+// invoke transformer function then it will calling the upperFirstWord function
 transformer('Javascript is the best!', upperFirstWord)
 // outputs:
 // 'Original string: Javascript is the best!'
@@ -190,3 +189,37 @@ document.body.addEventListener('click', high5);
 ['Nami', 'Ludo', 'Sumbul'].forEach(high5)
 
 // callback function allows us to create abstraction which means is that we hide the detail of some code implementation because we don't really care about all that detail and this allows us to think about problems at a higher more abstract level. in our example above, this transformer function doesn't care at all how the string is transformed, it doesn't care about the level of detail, all that wants to do is transform to transform a string but it doesn't care how it should do it.
+
+
+
+
+
+
+ // ===================BORDER====================== //
+
+
+ */
+///////////////////////////////
+// Functions Returning Functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  }
+}
+
+// this greeterHey is actually now a new function that we create earlier it the greet function 
+const greeterHey = greet('Hey');
+
+// it's the opposite of callback function, first we invoke greeterHey function with a name parameter, then we calling the greeting (greet function) and logs them with the name parameter value. 
+greeterHey('Jonas');  // outputs: Hey Jonas
+greeterHey('Nami');   // outputs: Hey Nami
+
+
+greet('Hello')('Nami');   // outputs: Hello Nami
+
+
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('Nami');  // outputs: Hi Nami
