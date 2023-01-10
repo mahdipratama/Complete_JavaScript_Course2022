@@ -109,18 +109,84 @@ checkIn(flight, nami)  // outputs: Wrong Passport!
 
 
 
-*/
+
 ///////////////////////////////
 // First-class and Higher-order function
 
-// First-class function is a function that can be treated like any other value in the language. This means that it can be assigned to a variable, passed as an argument to a function, or returned as a result from a function. we can storing them in variables or object properties. we can also return a function from another functions. There are also function methods, so methods that we can call on functions. 
+// First-class function is a function that can be treated like any other value in the language. This means that it can be assigned to a variable, passed as an argument to a function, or returned as a result from a function. we can storing them in variables or object properties. we can also return a function from another functions. There are also function methods, so methods that we can call on functions.
 
 
 // Higher-order function is A function that receives another function as an argument or a function that returns a new function.  that either take one or more functions as arguments or return a function as their result. Higher-order functions are often used to abstract over actions, create functions that transform other functions, or create functions that perform other functions on a particular type of data.
 // We can also have functions that return another function. Basically this whole code block, which clearly returns a new function,When a function returns another function, the inner function is defined at the time the outer function is called and the inner function has access to the variables in the outer function's scope. This is known as a closure.
 
-// So, what is the difference between First-class and Higher Order ? 
+// So, what is the difference between First-class and Higher Order ?
 
  // - First-Class function is just a feature that a programming language either has or does not have. All it means is that all function are values, they can be assigned to variables, passed as arguments to functions, or returned as result from function. There are no first class functions in practice it is just a concept.
 
  // - Higher-order-functions are functions that either take one or more functions as arguments or return a function as their result. There are however higher order functions in practice which are possible because the language supports First-Class functions.
+
+
+
+
+
+
+
+ // ===================BORDER====================== //
+
+
+
+
+
+
+
+ */
+///////////////////////////////
+// Functions Accepting Callback Functions
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+}
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+}
+
+// Higher
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+
+  // function as an argument
+  console.log(`Transform string: ${fn(str)}`);
+
+  // Function properties
+  console.log(`Transform by: ${fn.name}`);
+}
+
+// invoke transformer function then it will calling the upperFirstWord function 
+transformer('Javascript is the best!', upperFirstWord)
+// outputs:
+// 'Original string: Javascript is the best!'
+// 'Transform string: JAVASCRIPT is the best!'
+// 'Transform by: upperFirstWord'
+
+
+transformer('Javascript is the best!', oneWord)
+// outputs:
+// Original string: Javascript is the best!
+// Transform string: javascriptisthebest!
+// Transform by: oneWord
+
+// we're calling the transformer function and into that function we are passing the callback function (oneWord, upperFirstWord), we don't call them ourselves (invoke directly) but instead we calling them later with parameters happen right here(line: 160) it's the transform of function that will call these callback functions. in there, are called fn (as a parameters).
+
+
+
+// JS uses callback all the time
+const high5 = () => console.log('Hi hi');
+
+// addEventListener is a higher order function, and high5 set as callback function
+document.body.addEventListener('click', high5);
+
+['Nami', 'Ludo', 'Sumbul'].forEach(high5)
+
+// callback function allows us to create abstraction which means is that we hide the detail of some code implementation because we don't really care about all that detail and this allows us to think about problems at a higher more abstract level. in our example above, this transformer function doesn't care at all how the string is transformed, it doesn't care about the level of detail, all that wants to do is transform to transform a string but it doesn't care how it should do it.
