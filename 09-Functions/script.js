@@ -234,7 +234,7 @@ greetArr('Hi')('Nami');  // outputs: Hi Nami
 
 
 
- */
+*/
 ///////////////////////////////
 // The Call and Apply methods
 
@@ -263,10 +263,10 @@ const euroWings = {
 
 
 
-// storage a function into a new variable 
+// storage a function into a new variable
 const book = lufthansa.book;
 
-// it is now separate function here, its no longer methods within an object anymore and so below here it's a regular function , the 'this' keyword inside of it will now point to undefined. The 'this keyword depends on how the function is actually called. 
+// it is now separate function here, its no longer methods within an object anymore and so below here it's a regular function , the 'this' keyword inside of it will now point to undefined. The 'this keyword depends on how the function is actually called.
 // does NOT Work
 // book(23, 'Sarah william')
 // outputs: undefined
@@ -311,7 +311,88 @@ console.log(swiss);
 // }
 
 
-// using a 'call' method and spread operator to takes an arguments of an array 
+// using a 'call' method and spread operator to takes an arguments of an array
 const flightData2 = [123, 'Muh. Sumbul']
 book.call(swiss, ...flightData2);
 // outputs: Muh. Sumbul booked a seat on Swiss Air Lines flight Lx123
+
+
+
+
+
+
+// ===================BORDER====================== //
+
+
+
+
+
+///////////////////////////////
+// The Bind method
+
+// call and 'Bind' method allows us to manually set 'this' keyword for any function call, but the difference is 'bind'  doesn't immediately call the function instead it returns a new function where the 'this' keyword bound so it's set to whatever value we pass into 'bind'. 
+
+// We borrow the 'book' function with 'call' method right ?
+book.call(euroWings, 23, 'Sarah William');
+
+// with 'bind' method we create a function based on 'book' method where 'this' keyword will always be set to euroWings object
+const bookEW = book.bind(euroWings);
+console.log(bookEW);   // outputs: an entire book function
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+// invoke the new function that bound to euroWings object
+bookEW(23, 'Steven Stone');
+// outputs: Steven Stone booked a seat on Eurowings flight EW23
+
+
+// we can also pass multiple arguments besides a bind method and all of these arguments will also be basically set in stone. so they will be defined and the function always be called with these same arguments.
+
+// for instance: create a function for one specific airline and specific flight number. bookEW only for flight 23.
+const bookEW23 = book.bind(euroWings, 23);
+
+// first arguments was already set (23), so all remaining function now only need the name
+bookEW23('Martha Bhak')
+// outputs: Martha Bhak booked a seat on Eurowings flight EW23
+
+// what we did before specifying parts of the arguments beforehand, is actually common pattern called partial application. Partial application means that a part of the arguments of the original function are already applied/set. 'bookEW23' function it's essentially the 'book' function but with '23' already predefined.  
+
+
+// With Event listener 
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++
+  console.log(this.planes);
+}
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// the 'this' keyword always points to the element on which that handler is attached to, inside of the eventListeners above the 'this' keyword will point to the button element and the result it will be NaN. we need 'this' keyword to point to the lufthansa object, otherwise the 'buyPlane' function will not work. we used 'bind' cause' is gonna return a new function and so 'this' keyword should be lufthansa.
+
+
+
+// Partial application, means we can pre-set parameters using 'bind' method
+
+const addTax = (rate, value) => value + value * rate;
+
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value *0.23;
+
+console.log(addVAT(200));  // outputs: 246
+console.log(addVAT(23));   // outputs: 28.29
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  }
+}
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(200));  // outputs: 246
+console.log(addVAT2(23));   // outputs: 28.29
