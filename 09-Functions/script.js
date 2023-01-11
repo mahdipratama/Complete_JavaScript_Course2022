@@ -198,7 +198,7 @@ document.body.addEventListener('click', high5);
  // ===================BORDER====================== //
 
 
- */
+
 ///////////////////////////////
 // Functions Returning Functions
 
@@ -208,10 +208,10 @@ const greet = function (greeting) {
   }
 }
 
-// this greeterHey is actually now a new function that we create earlier it the greet function 
+// this greeterHey is actually now a new function that we create earlier it the greet function
 const greeterHey = greet('Hey');
 
-// it's the opposite of callback function, first we invoke greeterHey function with a name parameter, then we calling the greeting (greet function) and logs them with the name parameter value. 
+// it's the opposite of callback function, first we invoke greeterHey function with a name parameter, then we calling the greeting (greet function) and logs them with the name parameter value.
 greeterHey('Jonas');  // outputs: Hey Jonas
 greeterHey('Nami');   // outputs: Hey Nami
 
@@ -223,3 +223,95 @@ greet('Hello')('Nami');   // outputs: Hello Nami
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArr('Hi')('Nami');  // outputs: Hi Nami
+
+
+
+
+
+ // ===================BORDER====================== //
+
+
+
+
+
+ */
+///////////////////////////////
+// The Call and Apply methods
+
+const lufthansa = {
+  airline: 'Lutfthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+
+    this.bookings.push({ flight: `${this.iataCode} ${flightNum}`, name })
+  }
+
+}
+
+lufthansa.book(239, 'Nami Tsunami')
+lufthansa.book(635, 'Ludo Tsunami')
+console.log(lufthansa);
+
+
+const euroWings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+}
+
+
+
+// storage a function into a new variable 
+const book = lufthansa.book;
+
+// it is now separate function here, its no longer methods within an object anymore and so below here it's a regular function , the 'this' keyword inside of it will now point to undefined. The 'this keyword depends on how the function is actually called. 
+// does NOT Work
+// book(23, 'Sarah william')
+// outputs: undefined
+
+
+// function methods 'call',the first argument is an object that we want the 'this' keyword to point to, then all the arguments after the first one are the original arguments function.
+
+//  'call' invoke a function with a specified 'this' value and takes the arguments as separate values. in this case the 'this' keyword inside the book function will set to euroWings object.
+
+book.call(euroWings, 23, 'Sarah William');
+// outputs: Sarah William booked a seat on Eurowings flight EW23
+
+console.log(euroWings);
+// outputs:
+// { airline: 'Eurowings', iataCode: 'EW',bookings: [{ flight: 'EW 23', name: 'Sarah William' }]}
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'Lx',
+  bookings: [],
+}
+
+book.call(swiss, 32, 'Mary Ana');
+console.log(swiss);
+
+// Apply method
+// 'apply' takes the arguments of an array
+
+const flightData = [589, 'Goerge Cooper']
+book.apply(swiss, flightData);
+// outputs: Goerge Cooper booked a seat on Swiss Air Lines flight Lx589
+
+console.log(swiss);
+// outputs:
+// {
+//   airline: 'Swiss Air Lines',
+//   iataCode: 'Lx',
+//   bookings: [
+//     { flight: 'Lx 32', name: 'Mary Ana' },
+//     { flight: 'Lx 589', name: 'Goerge Cooper' }
+//   ]
+// }
+
+
+// using a 'call' method and spread operator to takes an arguments of an array 
+const flightData2 = [123, 'Muh. Sumbul']
+book.call(swiss, ...flightData2);
+// outputs: Muh. Sumbul booked a seat on Swiss Air Lines flight Lx123
